@@ -3,52 +3,59 @@
 @{
     ViewBag.Title = "Index";
 }
-
-
+<h2>Öğrenciler</h2>
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Soyad)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Where(x=> x.BursRole == "BursAlan"))
-    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Soyad)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th></th>
         </tr>
-    }
-</table>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Soyad)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Where(x => x.BursRole == "BursVeren"))
-    {
+        @foreach (var item in Model.Where(x=> x.BursRole == "BursAlan"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.ActionLink("Burs Ver", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("İletişime geç", "KisiGuncelle", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+<h2>Burs Verenler</h2>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Soyad)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th></th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model.Where(x => x.BursRole == "BursVeren"))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.ActionLink("Başvur", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("İletişime geç", "KisiGuncelle", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>

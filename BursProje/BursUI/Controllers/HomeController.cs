@@ -16,11 +16,8 @@ namespace BursUI.Controllers
             db = new ApplicationDbContext();
         }
         public ActionResult Index()
-        {
-            HomeViewModel hm = new HomeViewModel();
-            hm.ApplicationUser = db.Users.Where(x => x.BursRole == "BursAlan").ToList();
-            hm.ApplicationUser2 = db.Users.Where(x => x.BursRole == "BursVeren").ToList();
-            return View(hm);
+        {  
+            return View(db.Users.ToList());
         }
 
         public ActionResult About()
