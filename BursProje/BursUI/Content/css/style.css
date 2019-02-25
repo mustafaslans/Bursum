@@ -360,12 +360,13 @@ a {
     font-size: 15px; }
     .site-navbar-wrap .site-navbar .site-navigation .site-menu > li > a:hover {
       color: #fff; }
-  .site-navbar-wrap.scrolled {
-    z-index: 99;
-    padding: 0px 0;
-    -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.1);
-    background: #fff !important; }
+    .site-navbar-wrap.scrolled {
+        z-index: 99;
+        padding: 0px 0;
+        -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.1);
+        background: #FFF !important;
+    }
     .site-navbar-wrap.scrolled .site-menu-toggle span {
       color: #000; }
     .site-navbar-wrap.scrolled .site-logo a {

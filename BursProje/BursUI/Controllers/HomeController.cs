@@ -11,12 +11,20 @@ namespace BursUI.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext db;
+        public ActionResult Index()
+        {
+            return View();
+        }
         public HomeController()
         {
             db = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        public ActionResult Hersey()
         {  
+            return View(db.Users.ToList());
+        }
+        public ActionResult Burslar()
+        {
             return View(db.Users.ToList());
         }
 
