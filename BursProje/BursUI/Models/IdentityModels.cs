@@ -37,6 +37,5 @@ namespace BursUI.Models
         }
         public DbSet<BasvuruForm> BasvuruForms { get; set; }
 
-        public System.Data.Entity.DbSet<BursUI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

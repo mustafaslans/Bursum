@@ -1,5 +1,6 @@
 ﻿using BursUI.Entities.BursService;
 using BursUI.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +52,15 @@ namespace BursUI.Controllers
         }
         public ActionResult Profil()
         {
+            ViewBag.Id = User.Identity.GetUserId();
             return View();
-        }       
+        }
+        [HttpPost]
+        public JsonResult Getir(string id)
+        {
+            
+            ApplicationUser ad = db.Users.Where(x => x.Id == id).FirstOrDefault();
+            return Json(ad);
+        }
     }
 }
