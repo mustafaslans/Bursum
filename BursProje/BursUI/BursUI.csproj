@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\StyleSheet1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -422,6 +423,11 @@
     <Content Include="Views\Shared\_LayoutContact.cshtml" />
     <Content Include="Views\Shared\_LayoutListele.cshtml" />
     <Content Include="Views\Home\Burslar.cshtml" />
+    <Content Include="Views\Home\Ogrenciler.cshtml" />
+    <Content Include="Views\Home\BasvuruCreate.cshtml" />
+    <Content Include="Views\Shared\_LayoutListeleBursVeren.cshtml" />
+    <Content Include="Views\Shared\_LayoutProfile.cshtml" />
+    <Content Include="Views\Home\Profil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

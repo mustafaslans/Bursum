@@ -91,7 +91,11 @@ namespace BursUI.Controllers
                     return View(model);
             }
         }
-
+        public ActionResult LogOut()
+        {
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            return RedirectToAction("Index", "Home");
+        }
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]

@@ -14,6 +14,7 @@ namespace BursUI.Models
         public string BursRole { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
+        //public bool BursVer { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -36,5 +37,6 @@ namespace BursUI.Models
         }
         public DbSet<BasvuruForm> BasvuruForms { get; set; }
 
+        public System.Data.Entity.DbSet<BursUI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

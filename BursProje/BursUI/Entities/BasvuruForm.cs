@@ -35,5 +35,7 @@ namespace BursUI.Entities
         public string Telefon { get; set; }
         [Required]
         public string Email { get; set; }
+        public int BasvuranID { get; set; }
+        public int BasvurulanID { get; set; }
     }
 }

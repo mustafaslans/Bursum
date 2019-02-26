@@ -11,13 +11,21 @@ namespace BursUI.Controllers
     public class HomeController : Controller
     {
         ApplicationDbContext db;
+        public HomeController()
+        {
+            db = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();
         }
-        public HomeController()
+        public ActionResult About()
         {
-            db = new ApplicationDbContext();
+            return View();
+        }
+        public ActionResult Contact()
+        {
+            return View();
         }
         public ActionResult Hersey()
         {  
@@ -27,19 +35,23 @@ namespace BursUI.Controllers
         {
             return View(db.Users.ToList());
         }
-
-        public ActionResult About()
+        public ActionResult Ogrenciler()
         {
-            ViewBag.Message = "Your application description page.";
-
+            return View(db.Users.ToList());
+        }
+        [HttpGet]
+        public ActionResult BasvuruCreate()
+        {
             return View();
         }
-
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult BasvuruCreate(int basvurulanid)
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+        public ActionResult Profil()
+        {
+            return View();
+        }       
     }
 }
