@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Where(x => x.BursRole == "BursVeren"))
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -32,7 +32,6 @@
                 <td>
                     @if (this.User.IsInRole("BursAlan"))
                     {
-                        @*@Html.ActionLink("Başvur", "Details", new { id = item.Id })*@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#basvur"+item.Id)>
                             Başvur
                         </button>
@@ -96,25 +95,24 @@
 </div>
 @foreach (var item in Model)
 {
-    <div class="modal fade" id=@("basvur" + item.Id) tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id=@("basvur" + @item.Id) tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Burs Başvurusu</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Öğrenciler</h4>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <form method="post" action="">
+                    <div class="modal-body">
+
                         @{
-                            Html.RenderAction("BasvuruCreate", "Home", new { id = item.Id});
+                            Html.RenderAction("BasvuruCreate", "Home", new { id = item.Id });
                         }
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

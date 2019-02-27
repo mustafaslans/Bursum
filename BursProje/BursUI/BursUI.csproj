@@ -193,6 +193,7 @@
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProfilBursAlanViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -428,7 +429,7 @@
     <Content Include="Views\Home\BasvuruCreate.cshtml" />
     <Content Include="Views\Shared\_LayoutListeleBursVeren.cshtml" />
     <Content Include="Views\Shared\_LayoutProfile.cshtml" />
-    <Content Include="Views\Home\Profil.cshtml" />
+    <Content Include="Views\Home\ProfilBursAlan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
