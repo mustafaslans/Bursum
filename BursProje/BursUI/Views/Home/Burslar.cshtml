@@ -30,12 +30,7 @@
                     @Html.DisplayFor(modelItem => item.Soyad)
                 </td>
                 <td>
-                    @if (this.User.IsInRole("BursAlan"))
-                    {
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#basvur"+item.Id)>
-                            Başvur
-                        </button>
-                    }
+                    @Html.ActionLink("Başvur","BasvuruCreate", new { id = item.Id })
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mesaj">
                         İletişime Geç
                     </button>
@@ -93,27 +88,40 @@
         </div>
     </div>
 </div>
-@foreach (var item in Model)
-{
-    <div class="modal fade" id=@("basvur" + @item.Id) tabindex="-1" role="dialog" aria-labelledby="">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Öğrenciler</h4>
-                </div>
-                <form method="post" action="">
-                    <div class="modal-body">
 
-                        @{
-                            Html.RenderAction("BasvuruCreate", "Home", new { id = item.Id });
-                        }
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                    </div>
-                </form>
+
+@*<div class="modal fade" id="basvur" tabindex="-1" role="dialog" aria-labelledby="">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Öğrenciler</h4>
             </div>
+            <form method="post" action="">
+                <div class="modal-body">
+                    @{
+                        Html.RenderAction("BasvuruCreate", "Home", new { id = ViewBag.Id });
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
         </div>
     </div>
-}
+</div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#butto").click(function () {
+            var id = $("#butto").val();
+            $.ajax({
+                url: "Idtutma",
+                type: "POST",
+                dataType: "json",
+                success: function (data) {
+                    alert(data);
+                }
+            });
+        });
+</script>*@

@@ -1,4 +1,5 @@
 ﻿using BursUI.Entities;
+using BursUI.Entities.BursManagement;
 using BursUI.Entities.BursService;
 using BursUI.Models;
 using Microsoft.AspNet.Identity;
@@ -14,10 +15,12 @@ namespace BursUI.Controllers
     {
         ApplicationDbContext db;
         BasvuruFormManager bfm;
+        BasvuruFormRepository bfr;
         public HomeController()
         {
             db = new ApplicationDbContext();
             bfm = new BasvuruFormManager();
+            bfr = new BasvuruFormRepository();
         }
         public ActionResult Index()
         {
@@ -55,7 +58,7 @@ namespace BursUI.Controllers
             string basvuranid = User.Identity.GetUserId();
             bf.BasvuranID = basvuranid;
             bf.BasvurulanID = Id;
-            bfm.AddBasvuru(bf);
+            bfr.Add(bf);
             return View();
         }
         public ActionResult ProfilBursAlan()
@@ -87,6 +90,11 @@ namespace BursUI.Controllers
         {
             ApplicationUser ad = db.Users.Where(x => x.Id == id).FirstOrDefault();
             return Json(ad);
+        }
+        public JsonResult Idtutma(string id)
+        {
+            ViewBag.Id = id;
+            return Json(ViewBag.Id,JsonRequestBehavior.AllowGet);
         }
     }
 }
