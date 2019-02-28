@@ -98,8 +98,8 @@ namespace BursUI.Controllers
         [HttpPost]
         public ActionResult MessageCreate(string id, MessageBox mb)
         {
-            var result = from a in db.Users
-                         where a.Id = 
+            //var result = from a in db.Users
+            //             where a.Id == id 
             return View();
         }
     }
