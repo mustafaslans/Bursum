@@ -36,6 +36,7 @@ namespace BursUI.Models
             return new ApplicationDbContext();
         }
         public DbSet<BasvuruForm> BasvuruForms { get; set; }
+        public DbSet<MessageBox> MessageBoxes { get; set; }
 
     }
 }

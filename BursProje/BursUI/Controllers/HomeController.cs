@@ -15,12 +15,10 @@ namespace BursUI.Controllers
     {
         ApplicationDbContext db;
         BasvuruFormManager bfm;
-        BasvuruFormRepository bfr;
         public HomeController()
         {
             db = new ApplicationDbContext();
             bfm = new BasvuruFormManager();
-            bfr = new BasvuruFormRepository();
         }
         public ActionResult Index()
         {
@@ -47,19 +45,20 @@ namespace BursUI.Controllers
             return View(db.Users.ToList());
         }
         [HttpGet]
-        public ActionResult BasvuruCreate()
+        public ActionResult BasvuruCreate(string id)
         {
+            ViewBag.Id = id;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult BasvuruCreate(string Id, BasvuruForm bf)
+        public ActionResult BasvuruCreate(BasvuruForm bf, string id)
         {
             string basvuranid = User.Identity.GetUserId();
             bf.BasvuranID = basvuranid;
-            bf.BasvurulanID = Id;
-            bfr.Add(bf);
-            return View();
+            bf.BasvurulanID = id;
+            bfm.AddBasvuru(bf);
+            return RedirectToAction("Burslar");
         }
         public ActionResult ProfilBursAlan()
         {
@@ -81,20 +80,27 @@ namespace BursUI.Controllers
             string id2 = User.Identity.GetUserId();
             var result = (from a in db.BasvuruForms
                           join b in db.Users on a.BasvuranID equals b.Id
-                          where b.Id == id2
+                          where a.BasvurulanID == id2
                           select a).ToList();
             return View(result.ToList());
         }
-        [HttpPost]
-        public JsonResult Getir(string id)
+        public ActionResult Detaylar(int id)
         {
-            ApplicationUser ad = db.Users.Where(x => x.Id == id).FirstOrDefault();
-            return Json(ad);
+            BasvuruForm bf = db.BasvuruForms.Find(id);
+            return PartialView(bf);
         }
-        public JsonResult Idtutma(string id)
+        [HttpGet]
+        public ActionResult MessageCreate(string id)
         {
             ViewBag.Id = id;
-            return Json(ViewBag.Id,JsonRequestBehavior.AllowGet);
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult MessageCreate(string id, MessageBox mb)
+        {
+            var result = from a in db.Users
+                         where a.Id = 
+            return View();
         }
     }
 }

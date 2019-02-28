@@ -46,6 +46,14 @@
                                         <li class="active">
                                             <a href='@Url.Action("Index","Home")'>Ana Sayfa</a>
                                         </li>
+                                        @if (this.User.IsInRole("BursVeren"))
+                                        {
+                                            <li><a href='@Url.Action("ProfilBursVeren","Home")'>Profil</a></li>
+                                        }
+                                        @if (this.User.IsInRole("BursAlan"))
+                                        {
+                                            <li><a href='@Url.Action("ProfilBursAlan","Home")'>Profil</a></li>
+                                        }
                                         <li><a href='@Url.Action("Burslar","Home")'>Burslar</a></li>
                                         @if (this.User.IsInRole("BursVeren"))
                                         {

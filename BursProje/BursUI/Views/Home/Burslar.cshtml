@@ -30,7 +30,7 @@
                     @Html.DisplayFor(modelItem => item.Soyad)
                 </td>
                 <td>
-                    @Html.ActionLink("Başvur","BasvuruCreate", new { id = item.Id })
+                    @Html.ActionLink("Başvur","BasvuruCreate", new { id = item.Id }) |
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mesaj">
                         İletişime Geç
                     </button>
@@ -88,7 +88,6 @@
         </div>
     </div>
 </div>
-
 
 @*<div class="modal fade" id="basvur" tabindex="-1" role="dialog" aria-labelledby="">
     <div class="modal-dialog modal-dialog-centered" role="document">

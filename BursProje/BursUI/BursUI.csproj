@@ -178,9 +178,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\BasvuruForm.cs" />
     <Compile Include="Entities\BursManagement\BasvuruFormRepository.cs" />
+    <Compile Include="Entities\BursManagement\MessageBoxRepository.cs" />
     <Compile Include="Entities\BursService\BasvuruFormManager.cs" />
+    <Compile Include="Entities\BursService\MessageBoxManager.cs" />
+    <Compile Include="Entities\MessageBox.cs" />
     <Compile Include="Entities\Repository\IBaseRepository.cs" />
     <Compile Include="Entities\Repository\IBasvuruForm.cs" />
+    <Compile Include="Entities\Repository\IMessageBox.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -430,6 +434,9 @@
     <Content Include="Views\Shared\_LayoutListeleBursVeren.cshtml" />
     <Content Include="Views\Shared\_LayoutProfile.cshtml" />
     <Content Include="Views\Home\ProfilBursAlan.cshtml" />
+    <Content Include="Views\Home\ProfilBursVeren.cshtml" />
+    <Content Include="Views\Home\Detaylar.cshtml" />
+    <Content Include="Views\Home\MessageCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
