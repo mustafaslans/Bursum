@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BursUI.Entities.Repository
 {
-    interface IMessageBox : IBaseRepository<MessageBox>
+    public interface IMessageBox : IBaseRepository<MessageBox>
     {
     }
 }

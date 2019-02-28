@@ -33,8 +33,8 @@
                 <div class="py-1">
                     <div class="row align-items-center">
                         <div class="col-2">
-                            <h2 class="mb-0 site-logo"><a href='@Url.Action("Index","Home")'>Bursum.Net</a></h2>
-                        </div>
+                            <h2 class="mb-0 site-logo"><a href='@Url.Action("Index","Home")'>Bursum.Net</a></h2>    
+                        </div>                           
                         <div class="col-10">
                             <nav class="site-navigation text-right" role="navigation">
                                 <div class="container">
@@ -51,6 +51,7 @@
                                         {
                                             <li><a href='@Url.Action("ProfilBursAlan","Home")'>Profil</a></li>
                                         }
+                                        <li><a href='@Url.Action("Mesajlar", "Account")'>Mesajlar<span class="badge badge-light" style="background-color:#810000">4</span></a></li>
                                         <li><a href='@Url.Action("Burslar","Home")'>Burslar</a></li>
                                         @if (this.User.IsInRole("BursVeren"))
                                         {

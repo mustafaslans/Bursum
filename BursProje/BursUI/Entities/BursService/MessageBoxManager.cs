@@ -9,16 +9,16 @@ namespace BursUI.Entities.BursService
 {
     public class MessageBoxManager
     {
-        MessageBoxRepository br;
+        MessageBoxRepository mr;
         public MessageBoxManager()
         {
-            br = new MessageBoxRepository();
+            mr = new MessageBoxRepository();
         }
         public string AddMessage(MessageBox item)
         {
             try
             {
-                br.Add(item);
+                mr.Add(item);
                 return "Gönderildi";
             }
             catch (Exception ex)
@@ -30,7 +30,7 @@ namespace BursUI.Entities.BursService
         {
             try
             {
-                br.Delete(item);
+                mr.Delete(item);
                 return "Silindi";
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace BursUI.Entities.BursService
         }
         public ICollection<MessageBox> GetAllBasvuru(Expression<Func<MessageBox, bool>> parameter = null)
         {
-            return br.GetAll(parameter);
+            return mr.GetAll(parameter);
         }
     }
 }

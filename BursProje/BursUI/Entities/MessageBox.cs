@@ -9,8 +9,8 @@ namespace BursUI.Entities
     public class MessageBox
     {
         public int MessageboxID { get; set; }
-        public ApplicationUser MesajAtan { get; set; }
-        public ApplicationUser MesajAlan { get; set; }
+        public string MesajAtanID { get; set; }
+        public string MesajAlanID { get; set; }
         public string Mesaj { get; set; }
     }
 }

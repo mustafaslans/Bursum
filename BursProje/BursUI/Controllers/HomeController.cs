@@ -15,10 +15,12 @@ namespace BursUI.Controllers
     {
         ApplicationDbContext db;
         BasvuruFormManager bfm;
+        MessageBoxManager mbm;
         public HomeController()
         {
             db = new ApplicationDbContext();
             bfm = new BasvuruFormManager();
+            mbm = new MessageBoxManager();
         }
         public ActionResult Index()
         {
@@ -96,10 +98,13 @@ namespace BursUI.Controllers
             return PartialView();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult MessageCreate(string id, MessageBox mb)
         {
-            //var result = from a in db.Users
-            //             where a.Id == id 
+            string id2 = User.Identity.GetUserId();
+            mb.MesajAlanID = id;
+            mb.MesajAtanID = id2;
+            mbm.AddMessage(mb);
             return View();
         }
     }
