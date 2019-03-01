@@ -1,9 +1,8 @@
 ﻿<!DOCTYPE html>
 
 <html>
-
 <head>
-    <title>İletişim &mdash; Mustafa Aslan</title>
+    <title>Profil &mdash; Mustafa Aslan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
@@ -20,7 +19,6 @@
     <link rel="stylesheet" href="~/Content/css/aos.css">
     <link rel="stylesheet" href="~/Content/css/style.css">
 </head>
-
 <body>
     <div class="site-mobile-menu">
         <div class="site-mobile-menu-header">
@@ -93,19 +91,12 @@
         </div>
     </div>
     <div class="slide-one-item home-slider owl-carousel">
-        <div class="site-blocks-cover overlay" style="background-image: url(/Content/images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        <div class="site-blocks-cover overlay" style="background-image: url(/Content/images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-7 text-center" data-aos="fade">
-                        @if (this.User.IsInRole("BursVeren"))
-                        {
-                            <span class="caption mb-3">Kayıtlı Burslar</span>
-                        }
-                        @if (this.User.IsInRole("BursAlan") || !this.User.Identity.IsAuthenticated)
-                        {
-                            <span class="caption mb-3">Hemen Başvur</span>
-                        }
-                        <h1 class="mb-4">Burslar</h1>
+                        <span class="caption mb-3">Profil</span>
+                        <h1 class="mb-4">Mesajlar</h1>
                     </div>
                 </div>
             </div>

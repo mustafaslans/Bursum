@@ -38,9 +38,10 @@
                     @Html.DisplayFor(modelItem => item.BasvuruID)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#delete"+item.BasvuruID)>
-                        Başvuruyu Geri Çek
-                    </button>
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#delete"+item.BasvuruID)>
+            Başvuruyu Geri Çek
+        </button>*@
+                    @Html.ActionLink("İletişime Geç", "MessageCreate", new { id = item.BasvurulanID })
                 </td>
             </tr>
         }

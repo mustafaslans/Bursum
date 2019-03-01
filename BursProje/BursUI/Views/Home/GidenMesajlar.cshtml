@@ -1,0 +1,61 @@
+﻿@model IEnumerable<BursUI.Models.MesajlarViewModel>
+
+@{
+    ViewBag.Title = "GidenMesajlar";
+    Layout = "~/Views/Shared/_LayoutMesajlar.cshtml";
+}
+
+<table class="table table-striped table-dark" style="margin-top:0px;border-spacing: 0px;border-color: #32383e; border-top:none;margin-bottom:0rem">
+    <thead>
+        <tr>
+            <th style="border-bottom: 0px solid #dee2e6"></th>
+            <th style="border-bottom: 0px solid #dee2e6"></th>
+            <th style="background-color: #212529; border-color: #32383e; color: #fff;margin-bottom:0px;border-spacing: 0px;border-color: #32383e; align-content:center;border-bottom: 0px solid #dee2e6" ">
+                Giden Mesajlar
+            </th>
+        </tr>
+        <tr>
+            <th style="border-top: 0px solid #dee2e6;border-bottom: 0px solid #dee2e6" scope="col">Ad Soyad</th>
+            <th style="border-top: 0px solid #dee2e6;border-bottom: 0px solid #dee2e6" scope="col">Mesaj</th>
+            <th style="border-top: 0px solid #dee2e6;border-bottom: 0px solid #dee2e6" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mesaj)
+                </td>
+                <td>
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#message"+item.MesajAlanID)>
+            İletişime Geç
+        </button>*@
+                    @Html.ActionLink("İletişime Geç", "MessageCreate", new { id = item.MesajAlanID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@foreach (var item in Model)
+{
+    <div class="modal fade" id=@("message"+item.MesajAlanID) tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <form method="post" action="">
+                    @{
+                        Html.RenderAction("MessageCreate", "Home", new { id = item.MesajAlanID });
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+}*@

@@ -52,7 +52,17 @@
                                         {
                                             <li><a href='@Url.Action("ProfilBursAlan","Home")'>Profil</a></li>
                                         }
-                                        <li><a href='@Url.Action("Burslar","Home")'>Burslar</a></li>
+                                        @if (this.User.Identity.IsAuthenticated)
+                                        {
+                                            <li>
+                                                <a>Mesajlar<span class="badge badge-light" style="color:#a70000">4</span></a>
+                                                <ul>
+                                                    <li><a href='@Url.Action("GelenMesajlar", "Home")'>Gelen Mesajlar<span class="badge badge-light" style="color:#a70000">4</span></a></li>
+                                                    <li><a href='@Url.Action("GidenMesajlar", "Home")'>Giden Mesajlar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href='@Url.Action("Burslar","Home")'>Burslar</a></li>
+                                        }
                                         @if (this.User.IsInRole("BursVeren"))
                                         {
                                             <li><a href='@Url.Action("Ogrenciler", "Home")'>Öğrenciler</a></li>

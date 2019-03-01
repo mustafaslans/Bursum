@@ -8,8 +8,7 @@
     <thead>
         <tr>
             <th style="border-bottom: 0px solid #dee2e6"></th>
-            <th style="border-bottom: 0px solid #dee2e6"></th>
-            <th style="background-color: #212529; border-color: #32383e; color: #fff;margin-bottom:0px;border-spacing: 0px;border-color: #32383e; align-content:center;border-bottom: 0px solid #dee2e6" ">
+            <th style="background-color: #212529; border-color: #32383e; color: #fff;margin-bottom:0px;border-spacing: 0px;border-color: #32383e; text-align:right;border-bottom: 0px solid #dee2e6">
                 Öğrenciler
             </th>
         </tr>
@@ -30,60 +29,31 @@
                     @Html.DisplayFor(modelItem => item.Soyad)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mesaj">
-                        İletişime Geç
-                    </button>
+                    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=@("#message"+item.Id)>
+            İletişime Geç
+        </button>*@
+                    @Html.ActionLink("İletişime Geç", "MessageCreate", new { id = item.Id })
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<div class="modal fade" id="mesaj" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Suşi Su Sipariş</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row form-group">
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <label class="font-weight-bold" for="fullname">Adınız Soyadınız</label>
-                            <input type="text" id="fullname" class="form-control" placeholder="Adınız Soyadınız">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="font-weight-bold" for="email">Email</label>
-                            <input type="email" id="email" class="form-control" placeholder="Email Adresiniz">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <label class="font-weight-bold" for="phone">Telefon</label>
-                            <input type="text" id="phone" class="form-control" placeholder="Telefon Numaranız">
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <label class="font-weight-bold" for="message">Mesajınız</label>
-                            <textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="İletilmesi istediğiniz mesajı yazınız"></textarea>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <input type="submit" value="Mesajı yolla" class="btn btn-primary pill px-4 py-2">
-                        </div>
-                    </div>
+@*@foreach (var item in Model)
+{
+    <div class="modal fade" id=@("message"+item.Id) tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <form method="post" action="">
+                    @{
+                        Html.RenderAction("MessageCreate", "Home", new { id = item.Id });
+                    }
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
             </div>
         </div>
     </div>
-</div>
+}*@

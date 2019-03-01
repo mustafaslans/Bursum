@@ -11,5 +11,6 @@ namespace BursUI.Models
         public string Soyad { get; set; }
         public string Email { get; set; }
         public int BasvuruID { get; set; }
+        public string BasvurulanID { get; set; }
     }
 }

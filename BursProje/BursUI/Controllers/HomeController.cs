@@ -73,7 +73,8 @@ namespace BursUI.Controllers
                               Ad = b.Ad,
                               Soyad = b.Soyad,
                               Email = b.Email,
-                              BasvuruID = a.BasvuruFormID
+                              BasvuruID = a.BasvuruFormID,
+                              BasvurulanID = a.BasvurulanID
                           }).ToList();            
             return View(result.ToList());
         }
@@ -106,6 +107,36 @@ namespace BursUI.Controllers
             mb.MesajAtanID = id2;
             mbm.AddMessage(mb);
             return View();
+        }
+        public ActionResult GelenMesajlar()
+        {
+            string id = User.Identity.GetUserId();
+            var result = (from a in db.MessageBoxes
+                          join b in db.Users on a.MesajAtanID equals b.Id
+                          where a.MesajAlanID == id
+                          select new MesajlarViewModel
+                          {
+                              AdSoyad = b.Ad + " " + b.Soyad,
+                              Mesaj = a.Mesaj,
+                              MesajAlanID = a.MesajAlanID,
+                              MesajAtanID = a.MesajAtanID
+                          }).ToList();
+            return View(result.ToList());
+        }
+        public ActionResult GidenMesajlar()
+        {
+            string id = User.Identity.GetUserId();
+            var result = (from a in db.MessageBoxes
+                          join b in db.Users on a.MesajAlanID equals b.Id
+                          where a.MesajAtanID == id
+                          select new MesajlarViewModel
+                          {
+                              AdSoyad = b.Ad + " " + b.Soyad,
+                              Mesaj = a.Mesaj,
+                              MesajAlanID = a.MesajAlanID,
+                              MesajAtanID = a.MesajAtanID
+                          }).ToList();
+            return View(result.ToList());
         }
     }
 }
